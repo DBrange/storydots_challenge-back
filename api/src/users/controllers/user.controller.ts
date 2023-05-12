@@ -21,7 +21,7 @@ export class UserController {
   public async getUserById(@Param('userId') id: string) {
     return await this.userService.findUserById(id);
   }
-
+  @PublicAccess()
   @Post('register')
   public async createUser(@Body() body: UserDTO) {
     return await this.userService.createUser(body);
