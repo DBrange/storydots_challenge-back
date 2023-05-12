@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  storydots_pg:
+    image: postgres:latest
+    container_name: storydots_pg
+    restart: always
+    environment:
+      POSTGRES_DB: storydotsdb
+      POSTGRES_USER: ustorydots
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 9091:5432
